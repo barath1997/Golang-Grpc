@@ -1,8 +1,6 @@
 package connector
 
 import (
-
-
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/viper"
 	"google.golang.org/grpc"
@@ -16,7 +14,7 @@ func Connect() *grpc.ClientConn {
 	if err != nil {
 		log.Panic().AnErr("unable to connect to server from client : ", err)
 	}
-	
+
 	// connection is returned
 	return conn
 

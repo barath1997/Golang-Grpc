@@ -49,7 +49,7 @@ func GetSingleUserHandler(ctx *gin.Context) {
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"Error": err.Error(),
 		})
-		fmt.Println("ERROR : ",err.Error())
+		fmt.Println("ERROR : ", err.Error())
 
 	}
 }

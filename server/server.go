@@ -22,6 +22,11 @@ var log *zerolog.Logger
 
 type server struct{}
 
+//New is used for testing purposes
+func New() proto.UserManagementServiceServer {
+	return &server{}
+}
+
 func main() {
 
 	// loads the config file
@@ -101,14 +106,10 @@ func (s *server) GetMultipleUsers(ctx context.Context, request *proto.RequestUse
 	// invalid input check
 	if len(request.UserId) == 0 {
 		return &proto.ResponseUsers{}, status.Errorf(codes.InvalidArgument, "USER ID NOT PROVIDED")
-	} 
-	for _,v := range request.UserId {
-		if v == 0 {
-			return &proto.ResponseUsers{},status.Errorf(codes.InvalidArgument,"INVALID USER ID")
-		}
-       id = append(id,int(v))
-		}
-	
+	}
+	for _, v := range request.UserId {
+		id = append(id, int(v))
+	}
 
 	// GetData function is called with id
 	userData, err := mockdata.GetData(id)
@@ -119,13 +120,13 @@ func (s *server) GetMultipleUsers(ctx context.Context, request *proto.RequestUse
 	// proto is populated
 	for _, v := range userData {
 
-		usersList = append(usersList,&proto.ResponseUser{
-			Id: int64(v.ID),
-			City: v.City,
-			Fname: v.Fname,
-			Phone: v.Phone,
+		usersList = append(usersList, &proto.ResponseUser{
+			Id:      int64(v.ID),
+			City:    v.City,
+			Fname:   v.Fname,
+			Phone:   v.Phone,
 			Married: v.Married,
-			Height: float32(v.Height),
+			Height:  float32(v.Height),
 		})
 	}
 

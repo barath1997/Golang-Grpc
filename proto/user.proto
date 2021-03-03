@@ -7,14 +7,12 @@ option go_package = ".;proto";
 
 // user request with single id
 message RequestUser {
-    string jwt_token =1;
-    int64 user_id=2;
+    int64 user_id=1;
 }
 
 // user request with multiple ids
 message RequestUsers {
-    string jwt_token=1;
-    repeated int64 user_id=2;
+    repeated int64 user_id=1;
 }
 
 // user response
