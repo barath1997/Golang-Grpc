@@ -1,0 +1,8 @@
+#configurations
+
+server:
+  port: :4040
+client:
+  port: :4040
+external:
+  port: :8080
