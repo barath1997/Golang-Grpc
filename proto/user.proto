@@ -1,0 +1,38 @@
+
+syntax = "proto3";
+package protopb;
+option go_package = ".;proto";
+
+//option go_package
+
+// user request with single id
+message RequestUser {
+    int64 user_id=1;
+}
+
+// user request with multiple ids
+message RequestUsers {
+    repeated int64 user_id=1;
+}
+
+// user response
+message ResponseUser {
+int64 id=1;
+string fname=2;
+string city=3;
+uint64 phone=4;
+float height=5;
+bool married=6;
+}
+
+// multiple user response
+message ResponseUsers {
+   repeated ResponseUser Users=1;
+}
+
+// service
+service UserManagementService {
+
+rpc GetSingleUser(RequestUser) returns (ResponseUser) {};
+rpc GetMultipleUsers(RequestUsers) returns (ResponseUsers) {};
+}
