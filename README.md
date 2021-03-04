@@ -3,7 +3,7 @@
 This is a goalng-grpc example app is used to get user information.
 The app is built on client,server grpc model.Instead of a client a gateway can also be used. 
 
-To learn more about GRPC : 
+To learn more about GRPC : https://grpc.io/docs/languages/go/quickstart/
 
 The user data is mock data , generated when the service is started.
 
@@ -19,37 +19,37 @@ Steps to build and run :
 
 APIs avaialble : 
 
-1. GetSingleUser : 
+    1. GetSingleUser : 
 
-    EndPoint : http://localhost:8080/user-management/get-user
+       EndPoint : http://localhost:8080/user-management/get-user
 
-    RequestBody : `{
-                   "user_id": 1
-                }`
+       RequestBody : `{
+                     "user_id": 1
+                      }`
 
-    ResponseBody : `{
-                "result": {
-                "id": 1,
-                "fname": "saravanan",
-                "city": "chennai",
-                "phone": 986537287,
-                "height": 5.1
-                  }
-              }`
+       ResponseBody : `{
+                   "result": {
+                   "id": 1,
+                   "fname": "saravanan",
+                   "city": "chennai",
+                   "phone": 986537287,
+                   "height": 5.1
+                        }
+                      }`
 
-2. GetMultipleUsers : 
+    2. GetMultipleUsers : 
     
-     EndPoint : http://localhost:8080/user-management/get-users
+        EndPoint : http://localhost:8080/user-management/get-users
 
-     RequestBody : `{
-                 "user_id": [
+        RequestBody : `{
+                     "user_id": [
                           1
                          ]
-                    }`
+                       }`
 
-     ResponseBody : `{
-                   "result": {
-                     "Users": [
+        ResponseBody : `{
+                     "result": {
+                      "Users": [
                         {
                          "id": 1,
                          "fname": "saravanan",
@@ -59,7 +59,7 @@ APIs avaialble :
                         }
                           ]
                         }
-                    }`
+                      }`
 
 
 Unit testing is done for both the APIs and the test cases in the test file are for valid/true test cases.
@@ -83,9 +83,9 @@ Dockerization :
      1. docker build -t "tag-name" .
      2. docker run -it -p 4040:4040 "image-name"  (starts the server)
     
-   Once the server is started use : go run client/client.go (starts client)
+     Once the server is started use : go run client/client.go (starts client)
 
-   
+
 
 
 
